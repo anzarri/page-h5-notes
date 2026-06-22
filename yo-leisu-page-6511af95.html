@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>雷速官网 · 再回留白处</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(145deg, #fbe9d7 0%, #f1dac4 50%, #e8cdb5 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      padding: 1.5rem;
+      line-height: 1.6;
+      color: #2f2a24;
+    }
+
+    .page-card {
+      max-width: 980px;
+      width: 100%;
+      background: rgba(255, 250, 242, 0.88);
+      backdrop-filter: blur(4px);
+      border-radius: 36px;
+      padding: 2.4rem 2.8rem;
+      box-shadow: 0 20px 40px -12px rgba(120, 80, 50, 0.25), 
+                  0 6px 12px rgba(0,0,0,0.03);
+      transition: box-shadow 0.2s ease;
+    }
+
+    @media (max-width: 600px) {
+      .page-card {
+        padding: 1.8rem 1.2rem;
+        border-radius: 28px;
+      }
+    }
+
+    /* 主视觉 — 温和的标题与短句 */
+    .hero {
+      text-align: center;
+      margin-bottom: 2.6rem;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 450;
+      letter-spacing: 1px;
+      color: #4d3b2b;
+      background: linear-gradient(135deg, #6b4f36, #9b7b5e);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero .sub {
+      font-size: 1.05rem;
+      color: #7b6653;
+      border-bottom: 1px dashed #dac8b6;
+      padding-bottom: 1rem;
+      display: inline-block;
+      margin-top: 0.2rem;
+    }
+
+    /* 信息卡片网格 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.6rem;
+      margin: 2.4rem 0 2rem 0;
+    }
+
+    .card {
+      background: #ffffffd9;
+      backdrop-filter: blur(2px);
+      border-radius: 24px;
+      padding: 1.6rem 1.4rem 1.8rem;
+      box-shadow: 0 6px 14px rgba(140, 100, 70, 0.08);
+      border: 1px solid rgba(220, 194, 172, 0.25);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 22px rgba(110, 80, 55, 0.13);
+    }
+
+    .card h3 {
+      font-size: 1.3rem;
+      font-weight: 480;
+      margin-bottom: 0.6rem;
+      color: #4d3827;
+      letter-spacing: 0.3px;
+    }
+
+    .card p {
+      font-size: 0.98rem;
+      color: #3f352c;
+      margin-bottom: 0.3rem;
+    }
+
+    .card .tag {
+      display: inline-block;
+      background: #e4d2c0;
+      color: #3f2d1f;
+      font-size: 0.75rem;
+      padding: 0.2rem 0.9rem;
+      border-radius: 40px;
+      margin-top: 0.7rem;
+      opacity: 0.8;
+    }
+
+    /* 自然链接段落 — 圆角按钮感链接 */
+    .narrative {
+      background: #f4ede6;
+      border-radius: 28px;
+      padding: 1.6rem 2rem;
+      margin: 1.4rem 0 1.2rem 0;
+      font-size: 1rem;
+      border-left: 4px solid #c6ab92;
+    }
+
+    .narrative p {
+      margin-bottom: 0.8rem;
+    }
+
+    .narrative p:last-child {
+      margin-bottom: 0;
+    }
+
+    .link-btn {
+      display: inline-block;
+      background: #f1e2d3;
+      padding: 0.25rem 1.2rem 0.3rem 1.2rem;
+      border-radius: 60px;
+      color: #3d2d1e;
+      text-decoration: none;
+      font-weight: 470;
+      transition: all 0.15s ease;
+      border: 1px solid transparent;
+      white-space: nowrap;
+    }
+
+    .link-btn:hover {
+      background: #e5cfba;
+      border-color: #b39278;
+      color: #1f1710;
+    }
+
+    /* FAQ 摘要 */
+    .faq-tidbit {
+      margin: 2rem 0 1rem 0;
+      background: #faf3ec;
+      border-radius: 28px;
+      padding: 1.2rem 1.8rem;
+    }
+
+    .faq-tidbit details {
+      margin-bottom: 0.2rem;
+    }
+
+    .faq-tidbit summary {
+      font-weight: 470;
+      cursor: pointer;
+      color: #4b392a;
+      padding: 0.4rem 0;
+    }
+
+    .faq-tidbit details p {
+      margin: 0.6rem 0 0.2rem 1.2rem;
+      color: #4e3f32;
+      font-size: 0.95rem;
+    }
+
+    .note-line {
+      margin-top: 1.8rem;
+      font-size: 0.9rem;
+      color: #6f5d4c;
+      border-top: 1px solid #dccfc2;
+      padding-top: 1.2rem;
+      text-align: center;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #dccfc2;
+      margin: 0.4rem 0 0.8rem 0;
+      opacity: 0.4;
+    }
+
+    /* 响应式调整 */
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+      .narrative {
+        padding: 1.2rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-card">
+    <div class="hero">
+      <h1>又见面了 · 雷速</h1>
+      <div class="sub">一些信息，供再次浏览与收藏</div>
+    </div>
+
+    <!-- 信息卡片区：主视觉用途 + 适合人群 + 持续关注 -->
+    <div class="card-grid">
+      <div class="card">
+        <h3>📋 主视觉 · 信息整理</h3>
+        <p>页面以卡片式结构展现，温润底色配合柔和阴影，适合快速浏览内容概览。无论是想回顾服务方向，还是确认细节，都能找到对应模块。</p>
+        <span class="tag">浏览节奏舒适</span>
+      </div>
+      <div class="card">
+        <h3>🧭 用途卡片</h3>
+        <p>每一张卡片围绕一个核心信息展开：介绍、场景、适合人群。内容克制，没有冗余，方便你按需取用，也适合保存为备忘。</p>
+        <span class="tag">按需阅读</span>
+      </div>
+      <div class="card">
+        <h3>👤 适合人群</h3>
+        <p>曾访问过、想再确认一下内容的朋友；习惯把页面收藏起来、隔段时间再回看的人；以及刚开始接触、想有个温和开端的访客。</p>
+        <span class="tag">再次访问者 · 收藏者</span>
+      </div>
+    </div>
+
+    <!-- 自然链接段落：嵌入“雷速官网” -->
+    <div class="narrative">
+      <p>如果你是在某个书签夹里翻到了这个地址，或者想把这页留下来，那么直接记住 <a href="https://yo-leisu.com" class="link-btn">雷速官网</a> 就好。不需要费力去找入口 —— 它就是你能持续关注的地方。</p>
+      <p>页面本身不会频繁变动，但你每一次回来，看到的仍是同一份干净的信息结构。像是老地方，桌面上摆着熟悉的卡片，等你随手翻开。</p>
+    </div>
+
+    <!-- FAQ 摘要 — 适度展开 -->
+    <div class="faq-tidbit">
+      <details>
+        <summary>❓ 常见疑问摘要 · 关于再次访问</summary>
+        <p><strong>问：</strong> 我上次来的时候好像不是这个页面？<br>
+        <strong>答：</strong> 每次访问都可能看到不同角度的内容，但核心信息指向不变。你可以把 <a href="https://yo-leisu.com" style="color:#6b4f36;text-decoration:underline;">雷速官网</a> 当作一个稳定的起点。</p>
+      </details>
+      <details>
+        <summary>📌 收藏时需要注意什么？</summary>
+        <p>直接收藏当前链接即可。页面内容偶尔会更新，但结构保持类似卡片风格。如果想了解最新动态，隔几周回来看看就好。</p>
+      </details>
+      <details>
+        <summary>🔁 为什么适合持续关注？</summary>
+        <p>没有弹窗，没有紧迫通知，只有信息卡片和一段叙述。你可以慢慢读，读完关掉，下次再来还是熟悉的氛围。</p>
+      </details>
+    </div>
+
+    <div class="note-line">
+      <span>—— 没有催促，只有可收藏的角落 ——</span>
+    </div>
+  </div>
+</body>
+</html>
